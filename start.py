@@ -1,3 +1,5 @@
+#This project aims to scrape all articles in a news website using Selenium. 
+
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
@@ -164,29 +166,6 @@ while True:
         except Exception as e:
             print(f"An error occurred while processing an article: {e}")
 
-# Open each URL and scrape project details
-# for article in article_list:
-#     try:
-#         driver.get(article['link'])
-#         time.sleep(20)  # wait for the page to load
-        
-#         project_container = driver.find_element(By.ID, 'current-project')
-#         project_name = project_container.find_element(By.XPATH, '//*[@id="current-project"]/div/a').text
-#         project_area_container = driver.find_element(By.XPATH, '//*[@id="current-project"]/div').text
-#         project_area = project_area_container.replace(project_name,'')
-
-#         article['project_name'] = project_name
-#         article['project_area'] = project_area
-
-#         # article_container = driver.find_element(By.CLASS_NAME, 'news-item')
-#         # article_body = article_container.find_element(By.CLASS_NAME, 'article-excerpt').text
-#         # article['body'] = article_body
-
-#     except Exception as e:
-#         print(f"An error occurred while scraping project details for {article['link']}: {e}")
-
-
-# End timer
 end_time = time.time()
 duration = end_time - start_time
 print(f"Total time for loading all articles: {duration} seconds")
@@ -207,19 +186,3 @@ except IOError:
 
 
 driver.quit()
-
-
-#LAST RUN: 226 seconds or 4 minutes for 3 articles --> 'USA', 'flow-through shares' with project details
-#Estimated run for Canada: 1.8 hours (almost 2 hours lol)
-#TO FIX: scraping includes previously loaded articles
-
-
-
-#----old
-# options = Options()
-# options.add_experimental_option("detach", True)
-      
-# cService = webdriver.ChromeService("/Users/vanessarecla/chromedriver")
-# driver = webdriver.Chrome(service = cService, options= options)
-
-# driver.get("https://map.juniormininghub.com/articles")
